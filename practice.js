@@ -203,12 +203,14 @@ var user2 = {
 // name -> 'Tyler S. McGinnis', email -> 'tyler.mcginnis@devmounta.in'. Make that change.
 
   //Code Here
+  user2.name = 'Tyler S. McGinnis';
+  user2.email = 'tyler.mcginnis@devmounta.in';
 
 //Now call the sayName method that's on the user object which will alert the users email
 
   //Code Here
 
-
+  user2.sayName();
 
 
 //NEXT PROBLEM
@@ -219,6 +221,7 @@ var user2 = {
 //Create an empty object called methodCollection.
 
   //Code Here
+  var methodCollection = {};
 
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
@@ -226,10 +229,19 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 
   //Code Here
 
+  methodCollection.alertHello = function() {
+    alert('hello');
+  };
+
+  methodCollection.logHello = function() {
+    console.log('hello');
+  };
+
 //Now call your alertHello and logHello methods.
 
   //Code Here
-
+  methodCollection.alertHello();
+  methodCollection.logHello();
 
 
 //NEXT PROBLEM
@@ -240,7 +252,13 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 
   //Code Here
 
-
+  function MakePerson(name, birthday, ssn) {
+    return {
+      name: name,
+      birthday: birthday,
+      ssn: ssn
+    };
+  }
 
 //NEXT PROBLEM
 
@@ -250,7 +268,14 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 
   //Code Here
 
-
+  function MakeCard(number, sn, expirationDate, name) {
+    return {
+      number: number,
+      sn: sn,
+      expirationDate: expirationDate,
+      name: name
+    };
+  }
 
 //NEXT PROBLEM
 
@@ -262,3 +287,14 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 */
 
   //Code Here
+
+function bindCard(person, card) {
+  var newObj = {};
+  for (var key in person) {
+    newObj[key] = person[key];
+  }
+  for (var key in card) {
+    newObj[key] = card[key];
+  }
+  return newObj;
+}
